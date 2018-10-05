@@ -38,4 +38,4 @@
 - Chrome 浏览器和 Firefox 浏览器应该可以正常使用，其他浏览器看缘分；
 - 视频的版权归原所有者，此脚本的目的只为方便个人学习，请勿用于商业用途，否则后果自负。
 ## 如果有任何想法可以加群交流哦~
-> <img width="300px" src="https://coding.net/u/mofiter/p/public_files/git/raw/master/WechatGroupQRcode.png">
+> <img width="300px" src="./QRcode/WechatGroupQRcode.png">
