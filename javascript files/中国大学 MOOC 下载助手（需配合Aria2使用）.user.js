@@ -1,15 +1,13 @@
 // ==UserScript==
-// @name              中国大学 MOOC 下载助手
+// @name              中国大学 MOOC 下载助手（需配合Aria2使用）
 // @name:en           Icourse163 Downloader
 // @namespace         http://mofiter.com/
-// @version           0.1
+// @version           0.3
 // @description       在中国大学 MOOC 的课程学习页面添加批量下载按钮，方便将视频下载到本地学习
 // @description:en    add download button on icourse163.org to download videos
 // @author            mofiter
-// @create            2018-09-28
-// @lastmodified      2018-09-29
 // @require           https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js
-// @match             http*://www.icourse163.org/learn/*
+// @match             *://www.icourse163.org/learn/*
 // @grant             unsafeWindow
 // @grant             GM_getValue
 // @grant             GM_setValue
@@ -50,8 +48,12 @@
     //获取课程名称
     function getCourseIdAndName(){
         var courseCardDto = unsafeWindow.courseCardDto;
-        course_info.course_id = courseCardDto.currentTermId;
-        course_info.course_name = courseCardDto.name;
+        course_info.course_name = courseCardDto.name.replace(/\/|:|\?|\*|"|<|>|\|/g," ");
+        if(location.href.match(/tid=(\d+)/)[1]){
+            course_info.course_id = location.href.match(/tid=(\d+)/)[1];
+        }else{
+            course_info.course_id = courseCardDto.currentTermId;
+        }
     }
 
     //添加批量下载和下载设置按钮
@@ -165,19 +167,19 @@
                     var chapter4 = response.match(reg2); //保存章节 id，lessons，name 的变量
                     var reg3 = new RegExp(chapter4[2] + '\\[\\d+]=(.*?);','g');
                     var lessons = response.match(reg3); //保存各小节的变量
-                    var chapter = {'chapter_id':chapter4[1],'chapter_name':unescape(chapter4[3].replace(/\\u/gi, '%u')),'lesson_info':[]};
+                    var chapter = {'chapter_id':chapter4[1],'chapter_name':unescape(chapter4[3].replace(/\\u/gi, '%u').replace(/\/|:|\?|\*|"|<|>|\|/g," ")),'lesson_info':[]};
                     lessons.forEach(function(value){
                         var lesson1 = value.match(/=(.*?);/)[1]; //保存各小节的变量名字
                         var reg4 = new RegExp(lesson1 + '.chapterId=(.*?);.*?' + lesson1 + '.id=(.*?);.*?' + lesson1 + '.name="(.*?)";.*?' + lesson1 + '.units=(.*?);');
                         var lesson2 = response.match(reg4);
                         var reg5 = new RegExp(lesson2[4] + '\\[\\d+]=(.*?);','g');
                         var sections = response.match(reg5);
-                        var lesson = {'chapter_id':lesson2[1],'lesson_id':lesson2[2],'lesson_name':unescape(lesson2[3].replace(/\\u/gi, '%u')),'section_info':[]};
+                        var lesson = {'chapter_id':lesson2[1],'lesson_id':lesson2[2],'lesson_name':unescape(lesson2[3].replace(/\\u/gi, '%u').replace(/\/|:|\?|\*|"|<|>|\|/g," ")),'section_info':[]};
                         sections.forEach(function(value){
                             var section1 = value.match(/=(.*?);/)[1];
                             var reg6 = new RegExp(section1 + '.chapterId=(.*?);.*?' + section1 + '.contentId=(.*?);.*?' + section1 + '.contentType=(.*?);.*?' + section1 + '.id=(.*?);.*?' + section1 + '.lessonId=(.*?);.*?' + section1 + '.name="(.*?)";.*?');
                             var section2 = response.match(reg6);
-                            var section = {'chapter_id':section2[1],'lesson_id':section2[5],'content_id':section2[2],'section_id':section2[4],'section_name':unescape(section2[6].replace(/\\u/gi, '%u')),'content_type':section2[3]};
+                            var section = {'chapter_id':section2[1],'lesson_id':section2[5],'content_id':section2[2],'section_id':section2[4],'section_name':unescape(section2[6].replace(/\\u/gi, '%u').replace(/\/|:|\?|\*|"|<|>|\|/g," ")),'content_type':section2[3]};
                             lesson.section_info.push(section);
                         });
                         chapter.lesson_info.push(lesson);

@@ -2,12 +2,10 @@
 // @name              网易云课堂下载助手（需配合Aria2使用）
 // @name:en           Study163 Downloader
 // @namespace         http://mofiter.com/
-// @version           0.2
+// @version           0.6
 // @description       在网易云课堂的课程目录页面添加下载助手按钮（可批量下载和单个视频下载），方便将视频下载到本地学习
 // @description:en    add download button on study.163.com to download videos
 // @author            mofiter
-// @create            2018-07-31
-// @lastmodified      2018-09-29
 // @require           https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js
 // @match             *://study.163.com/course/courseMain.htm?courseId=*
 // @grant             unsafeWindow
@@ -19,7 +17,7 @@
 
 (function() {
     'use strict';
-    var $ = $ || window.$;
+    var $ = window.$;
     var log_count = 1;
     var hasOpenAriac2Tab = false;
     var video_quality = 2; //视频清晰度
@@ -60,12 +58,14 @@
 
     //添加下载助手按钮
     function addDownloadAssistant(){
-        var download_assistant_div = $("<div class='nitem'></div>");
+        $(".u-navsearchUI").css("width","224px");
+        var download_assistant_div = $("<div class='m-nav_item'></div>");
         var download_assistant = $("<span>下载助手</span>");
-        var assistant_div = $("<div class='f-pa' style='line-height:40px;display:none;left:0px;top:60px;width:auto;height:auto;background-color:#fff;color:#666;border:1px solid #ddd;padding:5px 15px;text-align:center;'><div class='arrr f-pa' style='background:url(//s.stu.126.net/res/images/ui/ui_new_yktnav_sprite.png) 9999px 9999px no-repeat;top:-9px;left:40px;width:14px;height:9px;background-position:-187px 0;'></div></div>");
-        var batch_download = $("<a>批量下载</a>");
-        var assistant_setting = $("<a>设置</a>");
-        assistant_div.append(batch_download).append(assistant_setting);
+        var assistant_div = $("<div class='f-pa' style='line-height:40px;display:none;left:0px;top:60px;width:auto;height:auto;background-color:#fff;color:#666;border:1px solid #ddd;padding:0 10px;text-align:center;'><div class='arrr f-pa' style='background:url(//s.stu.126.net/res/images/ui/ui_new_yktnav_sprite.png) 9999px 9999px no-repeat;top:-9px;left:40px;width:14px;height:9px;background-position:-187px 0;'></div></div>");
+        var batch_download = $("<a style='width:50%;float:left;'>批量下载</a>");
+        var assistant_setting = $("<a style='width:50%;float:right;'>设置</a>");
+        var recommendation = $("<img width='300px' src='https://qcloud.coding.net/u/mofiter/p/public_files/git/raw/master/recommendation.png'>");
+        assistant_div.append(batch_download).append(assistant_setting).append(recommendation);
         download_assistant_div.append(download_assistant).append(assistant_div);
         $('.m-nav').append(download_assistant_div);
         download_assistant_div.mouseover(function(){
@@ -146,15 +146,15 @@
     function getCourseInfo(){
         var courseVo = unsafeWindow.courseVo;
         course_info.course_id = courseVo.id; //课程 id
-        course_info.course_name = courseVo.name; //课程名称
+        course_info.course_name = courseVo.name.replace(/:|\?|\*|"|<|>|\|/g," "); //课程名称
         course_info.course_price = courseVo.price; //课程价格
         var chapter = courseVo.chapterDtos; //课程章节
         var allSeconds = 0; //课程总时长，单位为秒
         chapter.forEach(function(val,index){
-            var chapter = {'chapter_id': val.id,'chapter_name': val.name,'lesson_info': []}; //章节信息
+            var chapter = {'chapter_id': val.id,'chapter_name': val.name.replace(/:|\?|\*|"|<|>|\|/g," "),'lesson_info': []}; //章节信息
             var lessonDtos = val.lessonDtos;
             lessonDtos.forEach(function(val,index){
-                var lesson = {'keshi':val.ksstr,'lesson_id':val.id,'lesson_name':val.lessonName,'lesson_type':val.lessonType}; //课时信息
+                var lesson = {'keshi':val.ksstr,'lesson_id':val.id,'lesson_name':val.lessonName.replace(/:|\?|\*|"|<|>|\|/g," "),'lesson_type':val.lessonType}; //课时信息
                 if(val.videoTime){
                     var videoTime = val.videoTime.split(':');
                     if(videoTime.length == 3){

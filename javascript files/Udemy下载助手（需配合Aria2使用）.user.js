@@ -2,14 +2,12 @@
 // @name              Udemy下载助手（需配合Aria2使用）
 // @name:en           Udemy Downloader
 // @namespace         http://mofiter.com/
-// @version           0.2
+// @version           0.3
 // @description       在 Udemy 上课程的课程内容页面添加下载按钮（可批量下载和单个视频下载），方便将视频下载到本地学习
 // @description:en    add button on udemy's course content to download videos
 // @author            mofiter
-// @create            2018-07-31
-// @lastmodified      2018-09-29
 // @require           https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js
-// @match             http*://www.udemy.com/*/learn/v4/content
+// @match             *://www.udemy.com/*/learn/v4/content
 // @grant             GM_getValue
 // @grant             GM_setValue
 // @grant             GM_xmlhttpRequest
@@ -82,7 +80,7 @@
         $.each(mycourses_info,function(index,element){
             if (current_course_url.indexOf(element.url) > -1) {
                 current_course_info.course_id = element.id;
-                current_course_info.course_name = element.title;
+                current_course_info.course_name = element.title.replace(/:|\?|\*|"|<|>|\|/g," ");
                 return false;
             }
         });
@@ -107,11 +105,11 @@
                         }
                         if(item.id != 'useless'){
                             chapter.chapter_id = item.id;
-                            chapter.chapter_name = item.title;
+                            chapter.chapter_name = item.title.replace(/:|\?|\*|"|<|>|\|/g," ");
                             chapter.lecture_info = [];
                         }
                     }else if(item._class == 'lecture'){
-                        var lecture = {'lecture_sn':(++lecture_sn),'lecture_id':item.id,'lecture_name':item.title,'lecture_asset':{'asset_id':item.asset.id,'asset_name':item.asset.title,'asset_type':item.asset.asset_type}};
+                        var lecture = {'lecture_sn':(++lecture_sn),'lecture_id':item.id,'lecture_name':item.title.replace(/:|\?|\*|"|<|>|\|/g," "),'lecture_asset':{'asset_id':item.asset.id,'asset_name':item.asset.title.replace(/:|\?|\*|"|<|>|\|/g," "),'asset_type':item.asset.asset_type}};
                         chapter.lecture_info.push(lecture);
                     }
                 });
