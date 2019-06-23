@@ -9,7 +9,7 @@
 - 此脚本的目的只为方便个人学习，请勿用于商业用途，否则后果自负。
 ## [网易云课堂下载助手](https://greasyfork.org/zh-CN/scripts/371551)
 ### 功能
-在网易云课堂的课程详情的课程主页添加下载助手按钮，可以进行下载设置，然后批量下载当前课程，在每一个课时上面也添加了下载按钮，可以单独下载当前课时，下载功能由 Aria2 提供，所以下载课程前一定要配置好 Aria2，不然脚本无效，Aria2 的配置请看这篇文章：[如何配置 Aria2 来进行文件下载](https://mofiter.com/2018/08/19/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE-Aria2-%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/) 。
+在网易云课堂的课程详情的课程主页添加下载助手按钮，可以进行下载设置，然后批量下载当前课程，在每一个课时上面也添加了下载按钮，可以单独下载当前课时，下载功能由 Aria2 提供，所以下载课程前一定要配置好 Aria2，不然脚本无效，Aria2 的配置请看这篇文章：[如何配置 Aria2 来进行文件下载](https://mofiter.com/2018-08-19/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE-Aria2-%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD.html) 。
 ### 注意
 - 只有免费课程支持下载，收费课程下载之后无法播放，所以在收费课程的页面没有添加下载按钮；
 - 请注意你所在的课程目录页面地址，形式为 study.163.com/course/courseMain.htm?courseId=xxx 这样的才会有下载按钮(如果是 study.163.com/course/introduction.htm?courseId=xxx 这种形式，你需要先参加这门课程)；
@@ -19,7 +19,7 @@
 - 此脚本的目的只为方便个人学习，请勿用于商业用途，否则后果自负。 
 ## [Udemy 下载助手](https://greasyfork.org/zh-CN/scripts/371552)
 ### 功能
-在 Udemy 的课程内容页面添加下载助手按钮，可以进行下载设置，然后批量下载当前课程，在每一个课时上面也添加了下载按钮，可以单独下载当前课时，下载功能由 Aria2 提供，所以下载课程前一定要配置好 Aria2，不然脚本无效，Aria2 的配置请看这篇文章：[如何配置 Aria2 来进行文件下载](https://mofiter.com/2018/08/19/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE-Aria2-%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/) 。
+在 Udemy 的课程内容页面添加下载助手按钮，可以进行下载设置，然后批量下载当前课程，在每一个课时上面也添加了下载按钮，可以单独下载当前课时，下载功能由 Aria2 提供，所以下载课程前一定要配置好 Aria2，不然脚本无效，Aria2 的配置请看这篇文章：[如何配置 Aria2 来进行文件下载](https://mofiter.com/2018-08-19/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE-Aria2-%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD.html) 。
 ### 注意
 - 请注意你所在的课程内容页面地址，形式为 www.udemy.com/xxx/learn/v4/content 这样的才会有下载按钮；
 - 第一次使用脚本时，请先在下载助手按钮中选择设置，然后填写你要下载视频的保存地址，Mac 上的地址形式为:Users/xxx/Downloads/study163，Windows 上的地址形式为:D:\Downloads\study163，当然具体保存在哪个文件夹由你自己决定；
@@ -28,7 +28,7 @@
 - 此脚本的目的只为方便个人学习，请勿用于商业用途，否则后果自负。
 ## [微信公众号文章内视频下载](https://greasyfork.org/zh-CN/scripts/372880)
 ### 功能
-在微信公众号的文章页面添加视频下载按钮（如果当前文章中包含视频的话），方便将视频下载到本地使用。下载功能由 Aria2 提供，所以下载视频前一定要配置好 Aria2，不然脚本无效，Aria2 的配置请看这篇文章：[如何配置 Aria2 来进行文件下载](https://mofiter.com/2018/08/19/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE-Aria2-%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/) 。
+在微信公众号的文章页面添加视频下载按钮（如果当前文章中包含视频的话），方便将视频下载到本地使用。下载功能由 Aria2 提供，所以下载视频前一定要配置好 Aria2，不然脚本无效，Aria2 的配置请看这篇文章：[如何配置 Aria2 来进行文件下载](https://mofiter.com/2018-08-19/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE-Aria2-%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD.html) 。
 ### 注意
 - 请先安装 <b>Adblock</b> 等去除广告的浏览器插件([Google 应用商店地址](https://chrome.google.com/webstore/detail/adblock/gighmmpiobklfepjocnamgkkbiglidom) 或 [非 Google 应用商店地址](https://www.chromedownloads.net/extensions/456.html)），因为有些公众号文章内的视频是有广告的，会影响脚本的正常使用；
 - 有一小部分视频是无法下载的，就没有提供下载按钮，可以多刷新页面试一下，在没有广告的前提下，如果一直没有下载按钮出现，那应该这个视频就无法下载；
