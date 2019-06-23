@@ -1,7 +1,7 @@
 # 个人开发油猴脚本集合
 ## [中国大学 MOOC 下载助手](https://greasyfork.org/zh-CN/scripts/372684)
 ### 功能
-在中国大学 MOOC 的课程学习页面添加批量下载按钮，用来下载视频和文档资源，可以进行下载设置，下载功能由 Aria2 提供，所以下载课程前一定要配置好 Aria2，不然脚本无效，Aria2 的配置请看这篇文章：[如何配置 Aria2 来进行文件下载](https://mofiter.com/2018/08/19/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE-Aria2-%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/) 。
+在中国大学 MOOC 的课程学习页面添加批量下载按钮，用来下载视频和文档资源，可以进行下载设置，下载功能由 Aria2 提供，所以下载课程前一定要配置好 Aria2，不然脚本无效，Aria2 的配置请看这篇文章：[如何配置 Aria2 来进行文件下载](https://mofiter.com/2018-08-19/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE-Aria2-%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD.html) 。
 ### 注意
 - 请注意你所在的学习页面的地址，形式为 www.icourse163.org/learn/xxx  这样的才会有批量下载按钮，也就是你必须先参加这门课；
 - 第一次使用脚本时，请先点击下载设置，然后填写你要下载视频的保存地址，Mac 上的地址形式为:Users/xxx/Downloads/icourse163，Windows 上的地址形式为:D:\Downloads\icourse163，当然具体保存在哪个文件夹由你自己决定；
